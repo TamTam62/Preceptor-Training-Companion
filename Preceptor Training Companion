@@ -178,7 +178,12 @@
         </nav>
     </header><main class="container">
         <!-- Home Page -->
-        <div id="home" class="page active">
+        <div id="home" class="page active"><div id="plan" class="page">
+  <h2>Create Plan</h2>
+  <p>Select the learner's role, experience level, learning style, generation, and Bloom's level to generate a personalized onboarding strategy.</p>
+  ...
+</div>
+
             <div class="hero">
                 <h1>Welcome to The Preceptor Companion</h1>
                 <p>Your comprehensive tool for creating personalized training experiences that leverage the science of how people learn. Navigate using the links above to get started.</p>
@@ -198,7 +203,70 @@
             </div>
 
             <div class="card-grid">
-                <div class="card">
+                <div class="card"> <!-- Interactive Training Plan Generator -->
+<form id="training-plan-form">
+  <div class="form-group">
+    <label for="role">Role</label>
+    <select id="role" required>
+      <option value="">--Select Role--</option>
+      <option value="front-office">Front Office</option>
+      <option value="call-center">Call Center</option>
+      <option value="nursing-ma">Nursing/MA</option>
+      <option value="sonography">Sonography</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="learning-style">Learning Style</label>
+    <select id="learning-style" required>
+      <option value="">--Select Learning Style--</option>
+      <option value="visual">Visual</option>
+      <option value="auditory">Auditory</option>
+      <option value="kinesthetic">Kinesthetic</option>
+      <option value="intellectual">Intellectual</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="generation">Generation</label>
+    <select id="generation" required>
+      <option value="">--Select Generation--</option>
+      <option value="gen-z">Gen Z</option>
+      <option value="millennial">Millennial</option>
+      <option value="gen-x">Gen X</option>
+      <option value="baby-boomer">Baby Boomer</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="blooms-level">Bloom's Level</label>
+    <select id="blooms-level" required>
+      <option value="">--Select Bloom's Level--</option>
+      <option value="remember">Remember</option>
+      <option value="understand">Understand</option>
+      <option value="apply">Apply</option>
+      <option value="analyze">Analyze</option>
+      <option value="evaluate">Evaluate</option>
+      <option value="create">Create</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="duration">Training Duration</label>
+    <select id="duration" required>
+      <option value="">--Select Duration--</option>
+      <option value="4">4 weeks</option>
+      <option value="6">6 weeks</option>
+      <option value="8">8 weeks</option>
+      <option value="12">12 weeks</option>
+    </select>
+  </div>
+
+  <button type="submit" class="btn" style="width: 100%;">Generate Plan</button>
+</form>
+
+<div id="generated-plan" style="display: none; margin-top: 2rem;"></div>
+
                     <h3>Create Training Plans</h3> <div class="output-section">
   <h3>Example Learning Journey</h3>
 
@@ -287,6 +355,32 @@
                 });
             }
         });
-    </script>
+    </script> <script>
+  document.getElementById('training-plan-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const role = document.getElementById('role').value;
+    const learningStyle = document.getElementById('learning-style').value;
+    const generation = document.getElementById('generation').value;
+    const bloomsLevel = document.getElementById('blooms-level').value;
+    const duration = document.getElementById('duration').value;
+
+    const output = `
+      <div class="output-section">
+        <h3>${role.replace('-', ' ').toUpperCase()} Training Plan</h3>
+        <p><strong>Learning Style:</strong> ${learningStyle}</p>
+        <p><strong>Generation:</strong> ${generation}</p>
+        <p><strong>Bloom’s Level:</strong> ${bloomsLevel}</p>
+        <p><strong>Duration:</strong> ${duration} weeks</p>
+        <p>This training plan is customized for the learner’s profile. Combine your judgment with the example journey below for best results.</p>
+      </div>
+    `;
+
+    const planDiv = document.getElementById('generated-plan');
+    planDiv.innerHTML = output;
+    planDiv.style.display = 'block';
+  });
+</script>
+
 </body>
 </html>
