@@ -199,7 +199,31 @@
 
             <div class="card-grid">
                 <div class="card">
-                    <h3>Create Training Plans</h3>
+                    <h3>Create Training Plans</h3> <div class="output-section">
+  <h3>Example Learning Journey</h3>
+
+  <h4>Week 1 – Learn the System</h4>
+  <ul>
+    <li>Visual system overview (maps, screenshots, or whiteboard)</li>
+    <li>Practice scenarios with support</li>
+    <li>Intro-level self-paced modules</li>
+  </ul>
+
+  <h4>Weeks 2–3 – Build Confidence</h4>
+  <ul>
+    <li>Practice common workflows (e.g., scheduling, insurance)</li>
+    <li>Handle increasingly complex tasks with supervision</li>
+    <li>Address mistakes using the BEER method</li>
+  </ul>
+
+  <h4>Week 4 – Show What You Know</h4>
+  <ul>
+    <li>Suggest a simple process improvement idea</li>
+    <li>Peer-teach a task or workflow</li>
+    <li>Reflect with a self-evaluation: What’s going well? What needs work?</li>
+  </ul>
+</div>
+
                     <p>Generate customized training plans based on learner profiles, including learning style, generation, and skill level.</p>
                     <a href="#" class="btn" data-page="create-plan">Start Creating</a>
                 </div>
